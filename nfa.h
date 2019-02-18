@@ -46,7 +46,7 @@ public:
 	inline void setData(std::vector<void*>& dat) { this->data = dat; }
 	void execute();
 	void execute_mt(size_t num_threads);
-	State* getNewState() { allocator.push_back(State()); return &allocator.back() }
+	State* getNewState() { allocator.push_back(State()); return &allocator.back(); }
 
 	NFA() { }
 	~NFA() { }
