@@ -1,6 +1,6 @@
 #include "nfa.h"
 #include <algorithm>
-#include <thread>
+#include <pthread.h>
 
 void NFA::execute()
 {
@@ -34,7 +34,18 @@ template<typename Class, typename Func>
 static void runner(void* data) {
 }
 
+void* executor(void* nfa) {
+	NFA* n = static_cast<NFA*>(nfa);
+	n->execute();
+}
+
 void NFA::execute_mt(size_t n_threads) {
-	for(size_t i = 0; i < n_threads; i++)
-		std::thread t(&NFA::execute, this);
+	//std::vector<pthread_t> threads;
+	//pthread_attr_t attributes;
+	//pthread_attr_init(&attributes);
+	//threads.resize(n_threads);
+
+	//for (size_t i = 0; i < threads.size(); i++) {
+	//	pthread_create(&threads[i], &attributes)
+	//}
 }
