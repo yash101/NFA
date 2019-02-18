@@ -11,6 +11,10 @@
 	States may be an object, and transitions may be a condition, along with a pointer to another state object
 */
 
+class NextState;
+class State;
+class NFA;
+
 class NextState {
 public:
 	State* state;
